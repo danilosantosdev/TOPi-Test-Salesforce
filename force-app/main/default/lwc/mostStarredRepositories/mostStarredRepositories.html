@@ -1,0 +1,28 @@
+<template>
+
+    <div class="slds-size_1-of-1">
+        <div class="slds-m-around_medium">
+            <div class="slds-page-header">
+                <h1 class="slds-page-header__title slds-m-top_medium slds-m-bottom_medium">{title}</h1>
+                <span>Number of repositories: {data.length}</span>
+            </div>
+            <template if:false={showSpinner}>
+
+                <lightning-datatable
+                        key-field="id"
+                        data={data}
+                        columns={columns}
+                        hide-checkbox-column="true">
+                </lightning-datatable>
+
+            </template>
+
+            <!-- Spinner -->
+            <template if:true={showSpinner}>
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </template>
+        </div>
+        
+    </div>
+    
+</template>
